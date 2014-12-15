@@ -8,16 +8,20 @@ import javax.servlet.http.HttpServletResponse;
 import next.dao.QuestionDao;
 import next.model.Question;
 import core.mvc.Controller;
+import core.mvc.JstlView;
+import core.mvc.ModelAndView;
 
 public class ListController implements Controller {
 	private QuestionDao questionDao = new QuestionDao();
 	private List<Question> questions;
 	
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)
+	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		questions = questionDao.findAll();
-		request.setAttribute("questions", questions);
-		return "list.jsp";
+		
+		ModelAndView mav = new ModelAndView(new JstlView("list.jsp"));
+		mav.addObject("questions", questions);
+		return mav;
 	}
 }

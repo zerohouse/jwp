@@ -11,13 +11,13 @@ public class ForwardController implements Controller {
 	}
 
 	@Override
-	public String execute(HttpServletRequest request,
+	public ModelAndView execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		if (forwardUrl == null) {
 			throw new NullPointerException(
 					"forwardUrl is null. 이동할 URL을 입력하세요.");
 		}
-		return forwardUrl;
+		return new ModelAndView(new JstlView(forwardUrl));
 	}
 
 }

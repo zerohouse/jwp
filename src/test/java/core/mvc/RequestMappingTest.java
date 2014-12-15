@@ -22,9 +22,9 @@ public class RequestMappingTest {
 		String url = "index.next";
 		Controller controller = new Controller() {
 			@Override
-			public String execute(HttpServletRequest request,
+			public ModelAndView execute(HttpServletRequest request,
 					HttpServletResponse response) throws Exception {
-				return "index";
+				return new ModelAndView(new JstlView("index"));
 			}
 		};
 		rm.put(url, controller);

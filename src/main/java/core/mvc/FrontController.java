@@ -32,13 +32,14 @@ public class FrontController extends HttpServlet {
 		logger.debug("Method : {}, Request URI : {}", req.getMethod(), requestUri);
 		
 		Controller controller = rm.findController(urlExceptParameter(req.getRequestURI()));
-		String viewName;
+		ModelAndView mav;
 		try {
-			viewName = controller.execute(req, resp);
+			mav = controller.execute(req, resp);
+			View view = mav.getView();
+			view.render(mav.getModel(), req, resp);
 		} catch (Exception e) {
 			throw new ServletException(e.getMessage());
 		}
-		movePage(req, resp, viewName);
 	}
 
 	void movePage(HttpServletRequest req, HttpServletResponse resp,
