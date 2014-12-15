@@ -5,13 +5,14 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 
 import next.model.Question;
-import next.support.db.ConnectionManager;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+
+import core.jdbc.ConnectionManager;
 
 public class QuestionDaoTest {
 	@Before

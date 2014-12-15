@@ -1,4 +1,4 @@
-jwp-final
+java web programming
 =========
 
-NEXT Java Web Programming Basic
+NEXT Java Web Programming

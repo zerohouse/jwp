@@ -1,4 +1,4 @@
-package next.support.db;
+package core.jdbc;
 
 import java.sql.Connection;
 import java.sql.SQLException;
