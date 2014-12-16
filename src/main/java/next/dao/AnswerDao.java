@@ -29,9 +29,12 @@ public class AnswerDao {
 		RowMapper<Answer> rm = new RowMapper<Answer>() {
 			@Override
 			public Answer mapRow(ResultSet rs) throws SQLException {
-				return new Answer(rs.getLong("answerId"),
-						rs.getString("writer"), rs.getString("contents"),
-						rs.getTimestamp("createdDate"), questionId);
+				return new Answer(
+						rs.getLong("answerId"),
+						rs.getString("writer"), 
+						rs.getString("contents"),
+						rs.getTimestamp("createdDate"), 
+						questionId);
 			}
 		};
 		

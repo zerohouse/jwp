@@ -37,7 +37,8 @@ public class FrontController extends HttpServlet {
 			mav = controller.execute(req, resp);
 			View view = mav.getView();
 			view.render(mav.getModel(), req, resp);
-		} catch (Exception e) {
+		} catch (Throwable e) {
+			logger.error("Exception : {}", e);
 			throw new ServletException(e.getMessage());
 		}
 	}
