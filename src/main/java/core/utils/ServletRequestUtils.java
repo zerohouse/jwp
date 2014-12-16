@@ -19,6 +19,8 @@ package core.utils;
 import javax.servlet.ServletRequest;
 
 /**
+ * 이 소스 코드는 Spring 프레임워크에서 제공하는 유틸 클래스로서 학습 목적으로 추가함.
+ * 
  * Parameter extraction methods, for an approach distinct from data binding,
  * in which parameters of specific types are required.
  *
