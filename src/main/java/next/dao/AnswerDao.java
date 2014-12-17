@@ -20,8 +20,7 @@ public class AnswerDao {
 				answer.getQuestionId());
 	}
 
-	public List<Answer> findAllByQuestionId(long questionId)
-			throws SQLException {
+	public List<Answer> findAllByQuestionId(long questionId) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		String sql = "SELECT answerId, writer, contents, createdDate FROM ANSWERS WHERE questionId = ? "
 				+ "order by answerId desc";

@@ -11,7 +11,7 @@ import core.jdbc.RowMapper;
 
 public class QuestionDao {
 
-	public void insert(Question question) throws SQLException {
+	public void insert(Question question) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		String sql = "INSERT INTO QUESTIONS (writer, title, contents, createdDate, countOfComment) VALUES (?, ?, ?, ?, ?)";
 		jdbcTemplate.executeUpdate(sql, 
@@ -21,8 +21,8 @@ public class QuestionDao {
 				new Timestamp(question.getTimeFromCreateDate()), 
 				question.getCountOfComment());
 	}
-
-	public List<Question> findAll() throws SQLException {
+	
+	public List<Question> findAll() {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		String sql = "SELECT questionId, writer, title, createdDate, countOfComment FROM QUESTIONS "
 				+ "order by questionId desc";
@@ -41,7 +41,7 @@ public class QuestionDao {
 		return jdbcTemplate.list(sql, rm);
 	}
 
-	public Question findById(long questionId) throws SQLException {
+	public Question findById(long questionId) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		String sql = "SELECT questionId, writer, title, contents, createdDate, countOfComment FROM QUESTIONS "
 				+ "WHERE questionId = ?";
