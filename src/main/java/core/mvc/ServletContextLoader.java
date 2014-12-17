@@ -3,7 +3,9 @@ package core.mvc;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
+@WebListener
 public class ServletContextLoader implements ServletContextListener {
 	public static final String DEFAULT_REQUEST_MAPPING = "DEFAULT_REQUEST_MAPPING";
 	
