@@ -3,7 +3,7 @@ package core.mvc;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ForwardController implements Controller {
+public class ForwardController extends AbstractController {
 	private String forwardUrl;
 
 	public ForwardController(String forwardUrl) {
@@ -17,7 +17,7 @@ public class ForwardController implements Controller {
 			throw new NullPointerException(
 					"forwardUrl is null. 이동할 URL을 입력하세요.");
 		}
-		return new ModelAndView(new JstlView(forwardUrl));
+		return jstlView(forwardUrl);
 	}
 
 }

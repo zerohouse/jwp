@@ -5,19 +5,19 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import next.dao.AnswerDao;
 import next.dao.QuestionDao;
 import next.model.Answer;
 import next.model.Question;
-import core.mvc.Controller;
-import core.mvc.JstlView;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import core.mvc.AbstractController;
 import core.mvc.ModelAndView;
 import core.utils.ServletRequestUtils;
 
-public class ShowController implements Controller {
+public class ShowController extends AbstractController {
 	private static final Logger logger = LoggerFactory.getLogger(ShowController.class);
 	
 	private QuestionDao questionDao = new QuestionDao();
@@ -32,7 +32,7 @@ public class ShowController implements Controller {
 		logger.debug("questionId : {}", questionId);
 		question = questionDao.findById(questionId);
 		answers = answerDao.findAllByQuestionId(questionId);
-		ModelAndView mav = new ModelAndView(new JstlView("show.jsp"));
+		ModelAndView mav = jstlView("list.jsp");
 		mav.addObject("question", question);
 		mav.addObject("answers", answers);
 		return mav;

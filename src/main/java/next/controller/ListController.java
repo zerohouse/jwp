@@ -7,11 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import next.dao.QuestionDao;
 import next.model.Question;
-import core.mvc.Controller;
-import core.mvc.JstlView;
+import core.mvc.AbstractController;
 import core.mvc.ModelAndView;
 
-public class ListController implements Controller {
+public class ListController extends AbstractController {
 	private QuestionDao questionDao = new QuestionDao();
 	private List<Question> questions;
 	
@@ -20,7 +19,7 @@ public class ListController implements Controller {
 			throws Exception {
 		questions = questionDao.findAll();
 		
-		ModelAndView mav = new ModelAndView(new JstlView("list.jsp"));
+		ModelAndView mav = jstlView("list.jsp");
 		mav.addObject("questions", questions);
 		return mav;
 	}
