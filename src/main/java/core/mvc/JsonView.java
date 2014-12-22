@@ -6,17 +6,17 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonView implements View {
 
 	@Override
 	public void render(Map<String, ?> model, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		Gson gson = new Gson();
+		ObjectMapper mapper = new ObjectMapper();
 		response.setContentType("application/json;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.print(gson.toJson(model));
+		out.print(mapper.writeValueAsString(model));
 	}
 
 }
