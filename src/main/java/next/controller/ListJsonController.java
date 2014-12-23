@@ -10,7 +10,7 @@ import next.model.Question;
 import core.mvc.AbstractController;
 import core.mvc.ModelAndView;
 
-public class ListController extends AbstractController {
+public class ListJsonController extends AbstractController {
 
 	
 	@Override
@@ -19,7 +19,7 @@ public class ListController extends AbstractController {
 		QuestionDao questionDao = new QuestionDao();
 		List<Question> questions = questionDao.findAll();
 		
-		ModelAndView mav = jstlView("list.jsp");
+		ModelAndView mav = jsonView();
 		mav.addObject("questions", questions);
 		return mav;
 	}

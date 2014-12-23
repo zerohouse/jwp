@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import core.web.filter.CharacterEncodingFilter;
-
 @WebServlet("*.next")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -35,8 +33,6 @@ public class FrontController extends HttpServlet {
 		String requestUri = req.getRequestURI();
 		logger.debug("Method : {}, Request URI : {}", req.getMethod(), requestUri);
 	
-		CharacterEncodingFilter filter = new CharacterEncodingFilter();
-		filter.doFilter(req, resp, null);
 		Controller controller = rm.findController(urlExceptParameter(req.getRequestURI()));
 		ModelAndView mav;
 		try {
