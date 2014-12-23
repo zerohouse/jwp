@@ -32,18 +32,34 @@
 			</div>
 		</div>
 
+
+
+
+
+
+
+
 		<c:forEach items="${answers}" var="each">
-			<div class="post">
-				<h2 class="post-title">
-					<a> id = ${each.answerId} 답변 : ${each.contents}</a>
-				</h2>
-				<div class="post-metadata">
-					<span class="post-author">${each.writer}</span> <span
-						class="post-date"><fmt:formatDate
-							pattern="yyyy-MM-dd HH:mm:ss" value="${each.createdDate}" /></span> <span
-						class="post-comments"></span>
+
+
+			<div class="comments">
+				<h3>댓글 수 : ${question.countOfComment}</h3>
+				<div class="comment">
+					<div class="comment-metadata">
+						<span class="comment-author">${each.writer}</span> <span
+							class="comment-date"><fmt:formatDate
+								pattern="yyyy-MM-dd HH:mm:ss" value="${each.createdDate}" /></span>
+					</div>
+					<div class="comment-content">
+						<div class="about">내용 :</div>
+						${each.contents}
+					</div>
 				</div>
+
 			</div>
+
+
+
 		</c:forEach>
 
 
